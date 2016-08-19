@@ -1,0 +1,188 @@
+body {
+	margin: 0;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.page{
+	position: absolute;
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
+	background: #efefef;
+	display: flex;
+	flex-direction: column;
+}
+
+.page>header {
+	height: 44px;
+	background: #000;
+	color: #fff;
+}
+.page>header>h1 {
+	margin: 0 0 0 15px;
+	line-height: 44px;
+	font-size: 28px;
+}
+
+span.toggle-menu {
+	cursor: pointer;
+}
+
+.page>.body {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	min-height: 200px;
+}
+
+.page>.body>.sidemenu {
+	width: 250px;
+	min-height: 100%;
+	background: #000;
+	color: #fff;
+	transition: 0.2s all;
+}
+
+.page>.body>.sidemenu-mask {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 44px;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 5;
+	transition: 0.2s all;
+}
+
+.page>.body>.sidemenu ul {
+	margin: 0;
+	padding-left: 0;
+	transition: 0.2s all;
+}
+
+.sidemenu .toggle-menu {
+	display: none;
+}
+
+.sidemenu li {
+	line-height: 30px;
+}
+
+.sidemenu span {
+	display: block;
+}
+
+.sidemenu span.active+ul {
+	display: block;
+}
+
+.sidemenu ul span:before {
+	/* content: '+'; */
+}
+
+.sidemenu ul span.active {
+	background: #222;
+}
+
+.sidemenu ul.menu-list-1 {
+}
+
+.sidemenu ul.menu-list-1 a,.sidemenu ul.menu-list-1 span {
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+.sidemenu ul.menu-list-2 {
+	display: none;
+}
+
+.sidemenu ul.menu-list-2 {
+}
+
+.sidemenu ul.menu-list-2 a,.sidemenu ul.menu-list-2 span {
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.sidemenu ul.menu-list-3 {
+	display: none;
+}
+
+.sidemenu ul.menu-list-3 a,.sidemenu ul.menu-list-3 span {
+	padding-left: 45px;
+}
+
+.page>.body>.sidemenu li {
+	list-style-type: none;
+}
+
+.page>.body>.sidemenu a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.page>.body>.main {
+	flex: 1;
+	min-height: 100%;
+	background: #fff;
+	color: #000;
+}
+
+@media screen and (max-width: 720px) {
+	.page>.body.hidemenu>.sidemenu {
+		position: absolute;
+		left: 0px;
+		width: 250px;
+		min-height: 100%;
+		background: #000;
+		color: #fff;
+		z-index: 10;
+		transition: 0.2s all;
+	}
+	.page>.body>.sidemenu {
+		position: absolute;
+		left: -250px;
+		width: 250px;
+		min-height: 100%;
+		background: #000;
+		color: #fff;
+		z-index: 10;
+		transition: 0.2s all;
+	}
+	.page>.body.hidemenu>.sidemenu-mask {
+		display: block;
+	}
+	.page>.body>.sidemenu-mask {
+		display: none;
+	}
+	.sidemenu .toggle-menu {
+		display: inline-block;
+		position: absolute;
+		top: 8px;
+		right: 5px;
+	}
+	.page>.body>.main {
+		min-height: 100%;
+		background: #fff;
+		color: #000;
+	}
+}
+
+@media screen and (min-width: 721px) {
+	.page>.body.hidemenu>.sidemenu {
+		width: 0;
+	}
+}
+
+.container {
+	width: auto !important;
+}
+
+h1.page-title {
+	font-size: 24px;
+	margin-top: 0;
+}

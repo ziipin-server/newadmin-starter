@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<title></title>
+	<link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="page">
+		<header>
+			<h1>{{appName}}</h1>
+		</header>
+		<div class="body">
+			<div class="sidemenu">
+				<sidemenu></sidemenu>
+			</div>
+			<div class="sidemenu-mask"
+				onclick="$('.body').toggleClass('hidemenu')">
+			</div>
+			<div class="main">
+				<ol class="breadcrumb">
+					<span class="glyphicon glyphicon-menu-hamburger toggle-menu"
+						onclick="$('.body').toggleClass('hidemenu')">
+					</span>
+					
+					<li v-for="item in breadcrumb" :class="{'active': !item.href}">
+						<a v-if="item.href" :href="item.href">{{item.title}}</a>
+						<span v-else>{{item.title}}</span>
+					</li>
+				</ol>
+				<router-view :keep-alive="true">
+				</router-view>
+			</div>
+		</div>
+	</div>
+	<script src="libs/require.min.js" data-main="app/app.js"></script>
+</body>
+</html>
